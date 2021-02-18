@@ -1,0 +1,16 @@
+{
+    "name": "elijahbus/php_mvc",
+    "description": "a php mvc framework developed for eductional purpose",
+    "authors": [
+        {
+            "name": "Elijah Busanga",
+            "email": "elijahbus.ny@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    }
+}
