@@ -22,6 +22,9 @@ class Application
     $this->router = new Router($this->request, $this->response);
   }
 
+  /**
+   * Run a new instance of the application to the resolved route
+   */
   public function run()
   {
     echo $this->router->resolve();

@@ -25,14 +25,16 @@
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">My Contacts</a>
+                        <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    {{content}}
+    <div class="container">
+        {{content}}
+    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
