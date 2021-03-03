@@ -34,7 +34,7 @@ class Router
   public function resolve()
   {
     $path = $this->request->getPath();
-    $method = $this->request->getMethod();
+    $method = $this->request->method();
 
     $callback = $this->routes[$method][$path] ?? false;
 
@@ -52,7 +52,8 @@ class Router
 
     # Create an instance of the controller class the user has passed
     if (is_array($callback)) {
-      $callback[0] = new $callback[0]();
+      Application::$app->controller = new $callback[0]();
+      $callback[0] = Application::$app->controller;
     }
 
     # Return the controller action
@@ -95,8 +96,10 @@ class Router
    */
   protected function layoutContent()
   {
+    $layout = Application::$app->controller->layout;
+
     ob_start();
-    include_once Application::$ROOT_DIR . "/views/layouts/main.php";
+    include_once Application::$ROOT_DIR . "/views/layouts/$layout.php";
 
     return ob_get_clean();
   }

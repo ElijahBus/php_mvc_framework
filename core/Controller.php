@@ -4,6 +4,7 @@ namespace app\core;
 
 class Controller
 {
+    public string $layout = "main";
     /**
      * Render the view to the user
      *
@@ -13,5 +14,17 @@ class Controller
     public function  render($view, $params = [])
     {
         return Application::$app->router->renderView($view, $params);
+    }
+
+    /**
+     * Set the value of layout
+     *
+     * @return  self
+     */ 
+    public function setLayout($layout)
+    {
+        $this->layout = $layout;
+
+        return $this;
     }
 }
