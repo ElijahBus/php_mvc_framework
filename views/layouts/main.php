@@ -1,6 +1,7 @@
 <?php
 
 use app\core\Application;
+use app\core\notification\Alert;
 
 ?>
 
@@ -48,11 +49,7 @@ use app\core\Application;
     </nav>
 
     <div class="container">
-        <?php  if(Application::$app->session->getFlash('success')): ?>
-            <div class='alert alert-success'>
-                <?php echo Application::$app->session->getFlash('success') ?>
-            </div>
-        <?php endif; ?>
+        <?php echo new Alert('success') ?>
 
         {{content}}
     </div>
