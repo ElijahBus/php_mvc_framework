@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\core\Request;
 use app\core\Controller;
+use app\core\Application;
 use app\models\RegisterModel;
 
 class AuthController extends Controller
@@ -25,7 +26,9 @@ class AuthController extends Controller
             $registerModel->loadData($request->getBody());
 
             if ($registerModel->validate() && $registerModel->register()) {
-                return 'success';
+                
+                Application::$app->session->setFlash('success', "Thanks for registering");
+                Application::$app->response->redirect('/');
             }
             
             return $this->render('register', [
